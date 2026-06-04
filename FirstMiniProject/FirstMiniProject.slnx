@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="Domain/Domain.csproj" Id="ed65c105-f9c1-4591-ac85-d060a3526818" />
   <Project Path="FirstMiniProject/FirstMiniProject.csproj" />
+  <Project Path="Repository/Repository.csproj" Id="fa89edc9-70a4-48af-8959-0b9942b6db94" />
+  <Project Path="Service/Service.csproj" Id="bccb928d-05c7-4e7c-a635-623bd9508d81" />
 </Solution>
