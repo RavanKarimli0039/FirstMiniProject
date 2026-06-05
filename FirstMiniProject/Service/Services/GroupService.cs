@@ -37,13 +37,38 @@ namespace Service.Services
 
         public void Update(int id, Group data)
         {
-           
+            var existGroup = GetById(id);
+            if(existGroup == null)
+            {
+                Console.WriteLine("Tapılmadı");
+                return;
+            }
+            else
+            {
+                if(!string.IsNullOrWhiteSpace(data.Name))
+                {
+                    existGroup.Name = data.Name;
+                }
+                
+                if(!string.IsNullOrWhiteSpace(data.TeacherFullName))
+                {
+                    existGroup.TeacherFullName = data.TeacherFullName;
+                }
+
+                if(!string.IsNullOrWhiteSpace(data.RoomName))
+                {
+                    existGroup.RoomName = data.RoomName;
+                }
+            }
 
         }
 
-        public Group GeyById(int id)
+
+        public Group GetById(int id)
         {
-            throw new NotImplementedException();
+            return _groupRepo.Get(x => x.Id == id);
         }
+
+        
     }
 }

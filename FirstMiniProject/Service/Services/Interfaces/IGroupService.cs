@@ -12,6 +12,7 @@ namespace Service.Services.Interfaces
         List<Group> GetAllByRoom(string roomName);
         List<Group> SearchByName(string name);
         void Create(Group group);
-        Group GeyById(int id);
+        void Update(int id, Group group);
+        Group GetById(int id);
     }
 }

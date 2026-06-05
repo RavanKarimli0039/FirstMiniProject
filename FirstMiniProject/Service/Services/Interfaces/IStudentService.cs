@@ -10,7 +10,8 @@ namespace Service.Services.Interfaces
         List<Student> GetAllByAge(int age);
         List<Student> GetAllByGroupId(int groupId);
         List<Student> SearchByNameOrSurname(string text);
+        void Uptade(int id, Student student);
         void Create(Student student);
-        Student GeyById(int id);
+        Student GetById(int id);
     }
 }

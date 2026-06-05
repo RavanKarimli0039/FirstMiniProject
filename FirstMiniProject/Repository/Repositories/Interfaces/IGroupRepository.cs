@@ -12,8 +12,8 @@ namespace Repository.Repositories.Interfaces
     {
         List<Group> GetAllGroupsByTeacher(string teacher);
         List<Group> GetAllGroupsByRoom(string room);
-        void Update(T data);
-        List<Group> SearchGroupByName();
+        void Update(Group group);
+        List<Group> SearchGroupByName(string name);
 
 
 

@@ -18,9 +18,11 @@ namespace Repository.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Student> SearchByNameOrSurnamew(string nameOrSurname)
+        public List<Student> SearchByNameOrSurname(string nameOrSurname)
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }

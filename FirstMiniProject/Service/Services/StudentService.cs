@@ -12,35 +12,41 @@ namespace Service.Services
         private readonly IStudentRepository _studentRepo;
         private readonly IGroupRepository _groupRepo;
 
-        public StudentService(IStudentRepository studentRepo)
+        public StudentService(IStudentRepository studentRepo, IGroupRepository groupRepo)
         {
             _studentRepo = studentRepo;
+            _groupRepo = groupRepo;
 
         }
 
         public void Create(Student student)
         {
-            throw new NotImplementedException();
+            
         }
 
         public List<Student> GetAllByAge(int age)
         {
-            throw new NotImplementedException();
+            
         }
 
         public List<Student> GetAllByGroupId(int groupId)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public Student GeyById(int id)
+        public Student GetById(int id)
         {
-            throw new NotImplementedException();
+            
         }
 
         public List<Student> SearchByNameOrSurname(string text)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        public void Uptade(int id, Student student)
+        {
+            
         }
     }
 }

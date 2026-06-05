@@ -9,7 +9,7 @@ namespace Repository.Repositories.Interfaces
     {
         List<Student> GetByAge(int age);
         List<Student> GetAllByGroupId(int groupId);
-        List<Student> SearchByNameOrSurnamew(string nameOrSurname);
+        List<Student> SearchByNameOrSurname(string nameOrSurname);
         void Update(Student student);
     }
 }

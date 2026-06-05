@@ -7,8 +7,11 @@ namespace Repository.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
+
+        public static int IdCounter = 1;
         public void Create(T data)
         {
+            data.Id = IdCounter++;
             AppDbContext<T>.datas.Add(data);
         }
 
@@ -36,7 +39,11 @@ namespace Repository.Repositories
 
         public void Update(T data)
         {
-           
+            int index = AppDbContext<T>.datas.FindIndex(x => x.Id == data.Id);
+            if(index != -1)
+            {
+                AppDbContext<T>.datas[index] = data;
+            }
         }
     }
 }

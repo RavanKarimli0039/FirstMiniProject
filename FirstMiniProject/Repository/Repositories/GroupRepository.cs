@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Repository.Data;
 using Repository.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,31 @@ namespace Repository.Repositories
 {
     public class GroupRepository : BaseRepository<Group>, IGroupRepository
     {
-        public List<Group> GetAllGroupsByRoom(string room)
+        public List<Group> GetAllGroupsByRoom(string roomName)
         {
-            throw new NotImplementedException();
+            return GetAll(x => x.RoomName == roomName);
         }
 
-        public List<Group> GetAllGroupsByTeacher(string teacher)
+        public List<Group> GetAllGroupsByTeacher(string teacherFullName)
         {
-            throw new NotImplementedException();
+            return GetAll(x => x.TeacherFullName == teacherFullName);
         }
 
-        public List<Group> SearchGroupByName()
+        public List<Group> SearchGroupByName(string groupName)
         {
-            throw new NotImplementedException();
+            return GetAll(x => x.Name.Contains(groupName));
         }
 
-        public void Update(T data)
+        public void Update(Group group)
         {
-            throw new NotImplementedException();
+            var existGroup = AppDbContext<Group>.datas.Find(x => x.Id == group.Id);
+
+            if(existGroup != null)
+            {
+                existGroup.Name = group.Name;
+                existGroup.TeacherFullName = group.TeacherFullName;
+                existGroup.RoomName = group.RoomName;
+            }
         }
     }
 }
