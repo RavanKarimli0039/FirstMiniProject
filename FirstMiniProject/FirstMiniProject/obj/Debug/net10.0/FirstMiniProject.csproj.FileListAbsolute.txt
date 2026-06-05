@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\FirstMiniProject\FirstMiniProject\FirstMiniProject\obj\Debug\net10.0\FirstMiniProject.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\FirstMiniProject\FirstMiniProject\FirstMiniProject\obj\Debug\net10.0\FirstMiniProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\FirstMiniProject\FirstMiniProject\FirstMiniProject\obj\Debug\net10.0\FirstMiniProject.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\FirstMiniProject\FirstMiniProject\FirstMiniProject\obj\Debug\net10.0\FirstMiniProject.AssemblyInfo.cs
+C:\Users\user\Desktop\FirstMiniProject\FirstMiniProject\FirstMiniProject\obj\Debug\net10.0\FirstMiniProject.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\FirstMiniProject\FirstMiniProject\FirstMiniProject\obj\Debug\net10.0\FirstMiniProject.sourcelink.json
