@@ -35,7 +35,7 @@ namespace Service.Services
             _groupRepo.Create(data);
         }
 
-        public void Update(int id, Group data)
+        public void Update(int id, Group group)
         {
             var existGroup = GetById(id);
             if(existGroup == null)
@@ -45,19 +45,19 @@ namespace Service.Services
             }
             else
             {
-                if(!string.IsNullOrWhiteSpace(data.Name))
+                if(!string.IsNullOrWhiteSpace(group.Name))
                 {
-                    existGroup.Name = data.Name;
+                    existGroup.Name = group.Name;
                 }
                 
-                if(!string.IsNullOrWhiteSpace(data.TeacherFullName))
+                if(!string.IsNullOrWhiteSpace(group.TeacherFullName))
                 {
-                    existGroup.TeacherFullName = data.TeacherFullName;
+                    existGroup.TeacherFullName = group.TeacherFullName;
                 }
 
-                if(!string.IsNullOrWhiteSpace(data.RoomName))
+                if(!string.IsNullOrWhiteSpace(group.RoomName))
                 {
-                    existGroup.RoomName = data.RoomName;
+                    existGroup.RoomName = group.RoomName;
                 }
             }
 

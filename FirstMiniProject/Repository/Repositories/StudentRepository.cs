@@ -10,17 +10,17 @@ namespace Repository.Repositories
     {
         public List<Student> GetAllByGroupId(int groupId)
         {
-            throw new NotImplementedException();
+            return GetAll(x => x.Group.Id == groupId);
         }
 
         public List<Student> GetByAge(int age)
         {
-            throw new NotImplementedException();
+            return GetAll(x => x.Age == age);
         }
 
         public List<Student> SearchByNameOrSurname(string nameOrSurname)
         {
-            throw new NotImplementedException();
+            return GetAll(x => x.Name.Contains(nameOrSurname)|| x.Surname.Contains(nameOrSurname));
         }
 
        

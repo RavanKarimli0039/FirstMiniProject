@@ -25,17 +25,8 @@ namespace Repository.Repositories
         {
             return GetAll(x => x.Name.Contains(groupName));
         }
-
-        public void Update(Group group)
-        {
-            var existGroup = AppDbContext<Group>.datas.Find(x => x.Id == group.Id);
-
-            if(existGroup != null)
-            {
-                existGroup.Name = group.Name;
-                existGroup.TeacherFullName = group.TeacherFullName;
-                existGroup.RoomName = group.RoomName;
-            }
-        }
+        
     }
+
+
 }
