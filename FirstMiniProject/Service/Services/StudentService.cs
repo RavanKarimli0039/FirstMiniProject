@@ -26,6 +26,17 @@ namespace Service.Services
 
         }
 
+        public void Delete(int id)
+        {   
+            var student = GetById(id);         
+            _studentRepo.Delete(student);
+        }
+
+        public List<Student> GetAll()
+        {
+            return _studentRepo.GetAll();
+        }
+
         public List<Student> GetAllByAge(int age)
         {
             return _studentRepo.GetByAge(age);

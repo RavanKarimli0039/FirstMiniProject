@@ -7,11 +7,14 @@ namespace Service.Services.Interfaces
 {
     public interface IStudentService
     {
+        List<Student> GetAll();
         List<Student> GetAllByAge(int age);
         List<Student> GetAllByGroupId(int groupId);
         List<Student> SearchByNameOrSurname(string text);
         void Update(int id, Student student);
         void Create(Student student);
         Student GetById(int id);
+        void Delete(int id);
+
     }
 }

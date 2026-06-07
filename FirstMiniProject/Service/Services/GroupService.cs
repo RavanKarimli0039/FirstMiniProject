@@ -69,6 +69,15 @@ namespace Service.Services
             return _groupRepo.Get(x => x.Id == id);
         }
 
-        
+        public void Delete(int id)
+        {
+            var group = GetById(id); 
+            _groupRepo.Delete(group);
+        }
+
+        public List<Group> GetAll()
+        {
+            return _groupRepo.GetAll();
+        }
     }
 }
