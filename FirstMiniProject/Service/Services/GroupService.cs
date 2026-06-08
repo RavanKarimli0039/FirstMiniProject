@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Repository.Repositories.Interfaces;
+using Service.Exceptions;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,12 @@ namespace Service.Services
     public class GroupService :  IGroupService
     {
         private readonly IGroupRepository _groupRepo;
-        public GroupService(IGroupRepository groupRepo)
+        private readonly IStudentRepository _studentRepo;
+
+        public GroupService(IGroupRepository groupRepo, IStudentRepository studentRepo)
         {
             _groupRepo = groupRepo;
+            _studentRepo = studentRepo;
         }
 
         public List<Group> GetAllByRoom(string roomName)
@@ -61,17 +65,37 @@ namespace Service.Services
                 }
             }
 
+            _groupRepo.Update(existGroup);
+            Console.WriteLine("Uğurla yeniləndi.");
         }
+
+
 
 
         public Group GetById(int id)
         {
-            return _groupRepo.Get(x => x.Id == id);
+            var group = _groupRepo.Get(x => x.Id == id);
+            if (group == null)
+            {
+               
+                throw new NotFoundException($"{id} ID-li qrup tapılmadı.");
+            }
+            return group;
         }
 
         public void Delete(int id)
         {
-            var group = GetById(id); 
+            var group = GetById(id);
+            if (group == null) return;
+
+           
+            var studentsInGroup = _studentRepo.GetAll(x => x.Group.Id == id);
+            foreach (var student in studentsInGroup)
+            {
+                _studentRepo.Delete(student);
+            }
+
+            
             _groupRepo.Delete(group);
         }
 

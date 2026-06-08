@@ -52,7 +52,7 @@ namespace Project.Controllers
                     try
                     {
                         foundGroup = _groupService.GetById(groupId);
-                        break; // Qrup tapıldısa dövrdən çıxırıq
+                        break; 
                     }
                     catch (NotFoundException)
                     {
@@ -235,41 +235,98 @@ namespace Project.Controllers
 
         public void Update()
         {
-            Console.WriteLine("--- Tələbə Məlumatlarının Yenilənməsi ---");
-            Console.Write("Yeniləmək istədiyiniz tələbənin ID-sini daxil edin: ");
+            Console.WriteLine("\n--- Tələbə Məlumatlarının Yenilənməsi ---");
 
-            if (int.TryParse(Console.ReadLine(), out int id))
+           
+            int id;
+            while (true)
             {
-                try
+                Console.Write("Yeniləmək istədiyiniz tələbənin ID-sini daxil edin: ");
+                if (int.TryParse(Console.ReadLine(), out id)) break;
+                Console.WriteLine("Xəta: ID yalnız rəqəm olmalıdır!");
+            }
+
+            try
+            {
+                
+                _studentService.GetById(id);
+
+                Console.Write("Yeni ad (dəyişmək istəmirsinizsə boş buraxın): ");
+                string newName = Console.ReadLine();
+
+               
+                Console.Write("Yeni soyad (dəyişmək istəmirsinizsə boş buraxın): ");
+                string newSurname = Console.ReadLine();
+
+               
+                int newAge = 0;
+                while (true)
                 {
-                    
-                    _studentService.GetById(id);
-
-                    Console.Write("Yeni ad (dəyişmək istəmirsinizsə boş buraxın): ");
-                    string newName = Console.ReadLine();
-
-                    Console.Write("Yeni soyad (dəyişmək istəmirsinizsə boş buraxın): ");
-                    string newSurname = Console.ReadLine();
-
-                    Console.Write("Yeni yaş (dəyişmək istəmirsinizsə boş buraxın): ");
+                    Console.Write("Yeni yaş (15-60 arası, dəyişmək istəmirsinizsə boş buraxın): ");
                     string ageInput = Console.ReadLine();
-                    int newAge = string.IsNullOrWhiteSpace(ageInput) ? 0 : int.Parse(ageInput);
 
-                    Console.Write("Yeni email (dəyişmək istəmirsinizsə boş buraxın): ");
-                    string newEmail = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(ageInput)) break; 
 
-                    Console.Write("Yeni Qrup ID (dəyişmək istəmirsinizsə boş buraxın): ");
-                    string groupIdInput = Console.ReadLine();
-
-                    Group newGroup = null;
-                    if (!string.IsNullOrWhiteSpace(groupIdInput))
+                    if (int.TryParse(ageInput, out newAge))
                     {
-                        int newGroupId = int.Parse(groupIdInput);
-                        newGroup = _groupService.GetById(newGroupId);
+                        if (newAge >= 15 && newAge <= 60) break;
+                        else Console.WriteLine("Xəta: Yaş 15 və 60 aralığında olmalıdır!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Xəta: Zəhmət olmasa düzgün rəqəm daxil edin!");
+                    }
+                }
+
+                
+                string newEmail = "";
+                while (true)
+                {
+                    Console.Write("Yeni email (dəyişmək istəmirsinizsə boş buraxın): ");
+                    newEmail = Console.ReadLine();
+
+                   
+                    if (!string.IsNullOrWhiteSpace(newEmail) &&
+                        newEmail.Contains("@") &&
+                        newEmail.Substring(newEmail.IndexOf("@")).Contains(".") &&
+                        !newEmail.EndsWith("."))
+                    {
+                        break; 
+                    }
+                    else
+                    {
+                        Console.WriteLine("Xəta: Email formatı yanlışdır! (Məsələn: rvan@gmail.com)");
                     }
 
                    
-                    Student updatedStudent = new Student
+                    Group newGroup = null;
+                    while (true)
+                    {
+                        Console.Write("Yeni Qrup ID (dəyişmək istəmirsinizsə boş buraxın): ");
+                        string groupIdInput = Console.ReadLine();
+
+                        if (string.IsNullOrWhiteSpace(groupIdInput)) break; 
+
+                        if (int.TryParse(groupIdInput, out int newGroupId))
+                        {
+                            try
+                            {
+                                newGroup = _groupService.GetById(newGroupId);
+                                break;
+                            }
+                            catch (NotFoundException)
+                            {
+                                Console.WriteLine($"Xəta: {newGroupId} ID-li qrup tapılmadı! Yenidən daxil edin.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Xəta: Qrup ID-si rəqəm olmalıdır!");
+                        }
+                    }
+
+                   
+                    Student updatedStudentData = new Student
                     {
                         Name = newName,
                         Surname = newSurname,
@@ -278,21 +335,21 @@ namespace Project.Controllers
                         Group = newGroup
                     };
 
-                    _studentService.Update(id, updatedStudent);
-                    Console.WriteLine("Tələbə məlumatları uğurla yeniləndi.");
-                }
-                catch (NotFoundException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Xəta baş verdi: {ex.Message}");
+                    _studentService.Update(id, updatedStudentData);
+                    Console.WriteLine("Tələbə məlumatları uğurla yeniləndi!");
+
+
                 }
             }
-            else
+
+
+            catch (NotFoundException ex)
             {
-                Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
+                Console.WriteLine($"Xəta: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Gözlənilməz bir xəta baş verdi: {ex.Message}");
             }
         }
     }

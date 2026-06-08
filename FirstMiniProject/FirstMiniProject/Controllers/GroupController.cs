@@ -114,7 +114,7 @@ namespace Project.Controllers
             int id;
             while (true)
             {
-                Console.Write("Yeniləmək istədiyiniz qruun ID-sini daxil edin: ");
+                Console.Write("Yeniləmək istədiyiniz qrupun ID-sini daxil edin: ");
                 if (int.TryParse(Console.ReadLine(), out id)) break;
                 Console.WriteLine("Xəta: ID ancaq rəqəm ola bilər!");
             }
