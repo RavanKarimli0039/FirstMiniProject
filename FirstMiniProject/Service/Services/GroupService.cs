@@ -41,32 +41,31 @@ namespace Service.Services
 
         public void Update(int id, Group group)
         {
+            
             var existGroup = GetById(id);
-            if(existGroup == null)
-            {
-                Console.WriteLine("Tapılmadı");
-                return;
-            }
-            else
-            {
-                if(!string.IsNullOrWhiteSpace(group.Name))
-                {
-                    existGroup.Name = group.Name;
-                }
-                
-                if(!string.IsNullOrWhiteSpace(group.TeacherFullName))
-                {
-                    existGroup.TeacherFullName = group.TeacherFullName;
-                }
 
-                if(!string.IsNullOrWhiteSpace(group.RoomName))
-                {
-                    existGroup.RoomName = group.RoomName;
-                }
+            
+            if (!string.IsNullOrWhiteSpace(group.Name))
+            {
+
+                existGroup.Name = group.Name;
             }
 
+            if (!string.IsNullOrWhiteSpace(group.TeacherFullName))
+            {
+                existGroup.TeacherFullName = group.TeacherFullName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(group.RoomName))
+            {
+                existGroup.RoomName = group.RoomName;
+            }
+
+            
             _groupRepo.Update(existGroup);
-            Console.WriteLine("Uğurla yeniləndi.");
+
+           
+            Console.WriteLine("Məlumatlar uğurla yeniləndi.");
         }
 
 
@@ -77,8 +76,8 @@ namespace Service.Services
             var group = _groupRepo.Get(x => x.Id == id);
             if (group == null)
             {
-               
-                throw new NotFoundException($"{id} ID-li qrup tapılmadı.");
+                
+                throw new NotFoundException($"{id} ID-li məlumat tapılmadı.");
             }
             return group;
         }

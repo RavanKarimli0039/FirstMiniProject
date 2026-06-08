@@ -32,17 +32,28 @@ namespace Project.Controllers
                 Console.WriteLine("Xəta: Yaş 15 və 60 arasında bir rəqəm olmalıdır!");
             }
 
+
             
             string email;
             while (true)
             {
                 Console.Write("Email daxil edin: ");
                 email = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(email) && email.Contains("@")) break;
-                Console.WriteLine("Xəta: Email boş ola bilməz və daxilində '@' olmalıdır!");
+
+                
+                if (!string.IsNullOrWhiteSpace(email) &&
+                    email.Contains("@") &&
+                    email.IndexOf("@") > 0 && 
+                    email.Substring(email.IndexOf("@")).Contains(".") &&
+                    !email.EndsWith(".")) 
+                {
+                    break; 
+                }
+
+                Console.WriteLine("Xəta: Email formatı yanlışdır! (Nümunə: rvan@gmail.com)");
             }
 
-            
+
             Group foundGroup = null;
             while (true)
             {
@@ -282,24 +293,24 @@ namespace Project.Controllers
                 string newEmail = "";
                 while (true)
                 {
-                    Console.Write("Yeni email (dəyişmək istəmirsinizsə boş buraxın): ");
+                    Console.Write("Email daxil edin: ");
                     newEmail = Console.ReadLine();
 
-                   
+                    // Yeni, daha güclü yoxlama şərti:
                     if (!string.IsNullOrWhiteSpace(newEmail) &&
                         newEmail.Contains("@") &&
-                        newEmail.Substring(newEmail.IndexOf("@")).Contains(".") &&
-                        !newEmail.EndsWith("."))
+                        newEmail.IndexOf("@") > 0 && // @ birinci simvol olmasın
+                        newEmail.Substring(newEmail.IndexOf("@")).Contains(".") && // @-dan sonra nöqtə olsun
+                        !newEmail.EndsWith(".")) // Ən sonda nöqtə olmasın
                     {
-                        break; 
-                    }
-                    else
-                    {
-                        Console.WriteLine("Xəta: Email formatı yanlışdır! (Məsələn: rvan@gmail.com)");
+                        break; // Hər şey düzdürsə dövrdən çıx
                     }
 
-                   
-                    Group newGroup = null;
+                    Console.WriteLine("Xəta: Email formatı yanlışdır! (Nümunə: rvan@gmail.com)");
+                }
+
+
+                Group newGroup = null;
                     while (true)
                     {
                         Console.Write("Yeni Qrup ID (dəyişmək istəmirsinizsə boş buraxın): ");

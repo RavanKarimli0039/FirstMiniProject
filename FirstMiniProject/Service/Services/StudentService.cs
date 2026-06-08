@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Repository.Repositories.Interfaces;
+using Service.Exceptions;
 using Service.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,8 @@ namespace Service.Services
         }
 
         public void Delete(int id)
-        {   
-            var student = GetById(id);         
+        {
+            var student = GetById(id);
             _studentRepo.Delete(student);
         }
 
@@ -48,9 +49,17 @@ namespace Service.Services
         }
 
         public Student GetById(int id)
+
         {
-            return _studentRepo.Get(x=>x.Id == id);
+            var student = _studentRepo.Get(x => x.Id == id);
+            if (student == null)
+            {
+
+                throw new NotFoundException($"{id} ID-li məlumat tapılmadı.");
+            }
+            return student;
         }
+
 
         public List<Student> SearchByNameOrSurname(string text)
         {
@@ -59,43 +68,23 @@ namespace Service.Services
 
         public void Update(int id, Student student)
         {
+
             var existStudent = GetById(id);
-            if (existStudent == null)
+
+
+            if (!string.IsNullOrWhiteSpace(student.Name))
             {
-                Console.WriteLine("Tapılmadı");
-                return;
-            }
-            else
-            {
-                if (!string.IsNullOrWhiteSpace(student.Name))
-                {
-                    existStudent.Name = student.Name;
-                }
-
-                if (!string.IsNullOrWhiteSpace(student.Surname))
-                {
-                    existStudent.Surname = student.Surname;
-                }
-
-                if (student.Age > 0)
-                {
-                    existStudent.Age = student.Age;
-                }
-
-                if (!string.IsNullOrWhiteSpace(student.Email))
-                {
-                    existStudent.Email = student.Email;
-                }
-
-                if (student.Group != null)
-                {
-                    existStudent.Group = student.Group;
-                }
+                existStudent.Name = student.Name;
             }
 
-            _studentRepo.Update(existStudent);
+            if (!string.IsNullOrWhiteSpace(student.Surname))
+            {
+                existStudent.Surname = student.Surname;
+            }
+
+
+
         }
 
     }
-
 }
