@@ -109,8 +109,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Insiders\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAA0VAAAAAAAAAAAEwBQVAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-06-07T13:16:16.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T13:16:16.649Z"
             },
             {
               "$type": "Document",
@@ -122,8 +121,7 @@
               "RelativeToolTip": "Service\\Services\\StudentService.cs",
               "ViewState": "AgIAAFoAAAAAAAAAAAAIwCQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T06:55:49.298Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-05T06:55:49.298Z"
             },
             {
               "$type": "Document",
@@ -133,10 +131,9 @@
               "RelativeDocumentMoniker": "FirstMiniProject\\Controllers\\GroupController.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Controllers\\GroupController.cs",
               "RelativeToolTip": "FirstMiniProject\\Controllers\\GroupController.cs",
-              "ViewState": "AgIAAO4AAAAAAAAAAAAAAPgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAiwAwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:53:00.741Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T12:53:00.741Z"
             },
             {
               "$type": "Document",
@@ -148,8 +145,7 @@
               "RelativeToolTip": "FirstMiniProject\\Controllers\\StudentController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsBAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:53:08.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T12:53:08.825Z"
             },
             {
               "$type": "Document",
@@ -157,9 +153,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Program.cs",
               "RelativeDocumentMoniker": "FirstMiniProject\\Program.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Program.cs*",
-              "RelativeToolTip": "FirstMiniProject\\Program.cs*",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Program.cs",
+              "RelativeToolTip": "FirstMiniProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-03T08:49:20.343Z",
               "EditorCaption": ""
@@ -174,8 +170,7 @@
               "RelativeToolTip": "Domain\\Common\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T08:02:54.519Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T08:02:54.519Z"
             },
             {
               "$type": "Document",
@@ -187,8 +182,7 @@
               "RelativeToolTip": "Domain\\Entities\\Group.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAowA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T08:02:09.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T08:02:09.822Z"
             },
             {
               "$type": "Document",
@@ -200,8 +194,7 @@
               "RelativeToolTip": "Domain\\Entities\\Student.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T08:02:24.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T08:02:24.166Z"
             },
             {
               "$type": "Document",
@@ -213,8 +206,7 @@
               "RelativeToolTip": "Service\\Services\\Interfaces\\IGroupService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAYwBEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T06:56:44.215Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-05T06:56:44.215Z"
             },
             {
               "$type": "Document",
@@ -226,8 +218,7 @@
               "RelativeToolTip": "Service\\Services\\Interfaces\\IStudentService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAYwAkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T06:56:58.623Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-05T06:56:58.623Z"
             },
             {
               "$type": "Document",
@@ -239,8 +230,7 @@
               "RelativeToolTip": "Service\\Services\\GroupService.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAwwE8AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T06:55:59.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-05T06:55:59.018Z"
             },
             {
               "$type": "Document",
@@ -252,8 +242,7 @@
               "RelativeToolTip": "Repository\\Repositories\\BaseRepository.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwCUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T08:27:19.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T08:27:19.346Z"
             },
             {
               "$type": "Document",
@@ -265,8 +254,7 @@
               "RelativeToolTip": "Repository\\Repositories\\StudentRepository.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAswBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T08:27:43.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T08:27:43.5Z"
             },
             {
               "$type": "Document",
@@ -278,8 +266,7 @@
               "RelativeToolTip": "Repository\\Repositories\\GroupRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA/wBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T06:27:33.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-05T06:27:33.385Z"
             },
             {
               "$type": "Document",
@@ -291,8 +278,7 @@
               "RelativeToolTip": "Repository\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T08:17:12.611Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-04T08:17:12.611Z"
             },
             {
               "$type": "Document",
@@ -304,8 +290,7 @@
               "RelativeToolTip": "Service\\Exceptions\\AlreadyExistException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:57:08.954Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T12:57:08.954Z"
             },
             {
               "$type": "Document",
@@ -317,8 +302,7 @@
               "RelativeToolTip": "Service\\Exceptions\\NotFoundException.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:56:53.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T12:56:53.743Z"
             },
             {
               "$type": "Document",

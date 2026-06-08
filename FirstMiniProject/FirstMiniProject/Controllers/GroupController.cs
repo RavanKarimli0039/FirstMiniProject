@@ -13,18 +13,45 @@ namespace Project.Controllers
             _groupService = groupService;
         }
 
+
+
         public void Create()
         {
             Console.WriteLine("--- Yeni Qrup Yaradılması ---");
+
 
             string name;
             while (true)
             {
                 Console.Write("Qrup adını daxil edin: ");
                 name = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(name)) break;
-                Console.WriteLine("Xəta: Qrup adı boş ola bilməz!");
+
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("Xəta: Qrup adı boş ola bilməz!");
+                    continue;
+                }
+
+
+                if (name.All(char.IsDigit))
+                {
+                    Console.WriteLine("Xəta: Qrup adı yalnız rəqəmlərdən ibarət ola bilməz! Adın daxilində ən azı bir hərf və ya simvol olmalıdır.");
+                    continue;
+                }
+
+
+                var allGroups = _groupService.GetAll();
+                bool isDuplicate = allGroups.Exists(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+                if (isDuplicate)
+                {
+                    Console.WriteLine("Xəta: Bu adda qrup artıq mövcuddur! Zəhmət olmasa başqa ad daxil edin.");
+                    continue;
+                }
+
+                break;
             }
+
 
             string teacher;
             while (true)
@@ -38,35 +65,30 @@ namespace Project.Controllers
                     continue;
                 }
 
-                bool hasDigit = false;
-                foreach (char c in teacher)
-                {
-                    if (char.IsDigit(c))
-                    {
-                        hasDigit = true;
-                        break;
-                    }
-                }
 
+                bool hasDigit = teacher.Any(char.IsDigit);
                 if (hasDigit)
                 {
                     Console.WriteLine("Xəta: Müəllim adında rəqəm ola bilməz!");
+                    continue;
                 }
-                else
-                {
-                    break; 
-                }
+                break;
             }
+
 
             string room;
             while (true)
             {
                 Console.Write("Otaq adını daxil edin: ");
                 room = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(room)) break;
-                Console.WriteLine("Xəta: Otaq adı boş ola bilməz!");
+
+                if (string.IsNullOrWhiteSpace(room))
+                {
+                    Console.WriteLine("Xəta: Otaq adı boş ola bilməz!");
+                    continue;
+                }
+                break;
             }
-        
             try
             {
                 Group newGroup = new Group
@@ -92,7 +114,7 @@ namespace Project.Controllers
             int id;
             while (true)
             {
-                Console.Write("Yeniləmək istədiyiniz qrupun ID-sini daxil edin: ");
+                Console.Write("Yeniləmək istədiyiniz qruun ID-sini daxil edin: ");
                 if (int.TryParse(Console.ReadLine(), out id)) break;
                 Console.WriteLine("Xəta: ID ancaq rəqəm ola bilər!");
             }
@@ -100,8 +122,27 @@ namespace Project.Controllers
             Console.Write("Yeni qrup adı (dəyişmək istəmirsinizsə boş buraxın): ");
             string newName = Console.ReadLine();
 
-            Console.Write("Yeni müəllim adı (dəyişmək istəmirsinizsə boş buraxın): ");
-            string newTeacher = Console.ReadLine();
+
+            string newTeacher;
+            while (true)
+            {
+                Console.Write("Yeni müəllim adı (dəyişmək istəmirsinizsə boş buraxın): ");
+                newTeacher = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(newTeacher))
+                {
+                    break;
+                }
+
+
+                if (newTeacher.Any(char.IsDigit))
+                {
+                    Console.WriteLine("Xəta: Müəllim adında rəqəm ola bilməz!");
+                    continue;
+                }
+
+                break;
+            }
 
             Console.Write("Yeni otaq adı (dəyişmək istəmirsinizsə boş buraxın): ");
             string newRoom = Console.ReadLine();
@@ -130,47 +171,67 @@ namespace Project.Controllers
 
         public void GetById()
         {
-            int id;
             while (true)
             {
                 Console.Write("Axtardığınız ID-ni daxil edin: ");
-                if (int.TryParse(Console.ReadLine(), out id)) break;
-                Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
-            }
+                string input = Console.ReadLine();
 
-            try
-            {
-                var group = _groupService.GetById(id);
-                Console.WriteLine($"ID: {group.Id} | Ad: {group.Name} | Müəllim: {group.TeacherFullName} | Otaq: {group.RoomName}");
-            }
-            catch (NotFoundException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
+                if (!int.TryParse(input, out int id))
+                {
+                    Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
+                    continue;
+                }
 
-        public void Delete()
-        {
-            Console.Write("Silmək istədiyiniz qrupun ID-sini daxil edin: ");
-            if (int.TryParse(Console.ReadLine(), out int id))
-            {
                 try
                 {
-                    _groupService.Delete(id);
-                    Console.WriteLine("Qrup uğurla silindi.");
+                    var group = _groupService.GetById(id);
+
+                    if (group == null)
+                    {
+                        throw new NotFoundException($"Xəta: {id} ID-li qrup tapılmadı!");
+                    }
+
+                    Console.WriteLine($"ID: {group.Id} | Ad: {group.Name} | Müəllim: {group.TeacherFullName} | Otaq: {group.RoomName}");
+
+                    break;
                 }
                 catch (NotFoundException ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
+            }
+        }
+
+        public void Delete()
+        {
+            while (true)
+            {
+                Console.Write("Silmək istədiyiniz qrupun ID-sini daxil edin: ");
+                string input = Console.ReadLine();
+
+                if (!int.TryParse(input, out int id))
+                {
+                    Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
+                    continue;
+                }
+
+                try
+                {
+                    _groupService.Delete(id);
+                    Console.WriteLine("Qrup uğurla silindi.");
+
+                    break;
+                }
+                catch (NotFoundException ex)
+                {
+                    Console.WriteLine(ex.Message);
+
+                }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Xəta: {ex.Message}");
+                    Console.WriteLine($"Gözlənilməz xəta baş verdi: {ex.Message}");
+
                 }
-            }
-            else
-            {
-                Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
             }
         }
 
