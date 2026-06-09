@@ -18,7 +18,8 @@ namespace Service.Services
             _studentRepo = studentRepo;
         }
 
-        public List<Group> GetAllByRoom(string roomName)
+        public List<Group> GetAllByRoom(string roomName) 
+
         {
             return _groupRepo.GetAll(x => x.RoomName.Contains(roomName, StringComparison.OrdinalIgnoreCase));
         }

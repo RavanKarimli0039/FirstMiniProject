@@ -109,7 +109,7 @@ namespace Project.Controllers
 
         public void Update()
         {
-            Console.WriteLine("--- Qrup Yeniləmə ---");
+            Console.WriteLine("\n--- Qrup Yeniləmə ---");
 
             int id;
             while (true)
@@ -119,53 +119,54 @@ namespace Project.Controllers
                 Console.WriteLine("Xəta: ID ancaq rəqəm ola bilər!");
             }
 
-            Console.Write("Yeni qrup adı (dəyişmək istəmirsinizsə boş buraxın): ");
-            string newName = Console.ReadLine();
-
-
-            string newTeacher;
-            while (true)
-            {
-                Console.Write("Yeni müəllim adı (dəyişmək istəmirsinizsə boş buraxın): ");
-                newTeacher = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(newTeacher))
-                {
-                    break;
-                }
-
-
-                if (newTeacher.Any(char.IsDigit))
-                {
-                    Console.WriteLine("Xəta: Müəllim adında rəqəm ola bilməz!");
-                    continue;
-                }
-
-                break;
-            }
-
-            Console.Write("Yeni otaq adı (dəyişmək istəmirsinizsə boş buraxın): ");
-            string newRoom = Console.ReadLine();
-
             try
             {
-                Group updatedData = new Group
+               
+                var existGroup = _groupService.GetById(id);
+
+                
+                string newName;
+                while (true)
+                {
+                    Console.Write($"Yeni qrup adı (Köhnə ad: {existGroup.Name}, dəyişmək istəmirsinizsə boş buraxın): ");
+                    newName = Console.ReadLine();
+
+                    
+                    if (string.IsNullOrWhiteSpace(newName)) break;
+
+                    
+                    if (newName.Equals(existGroup.Name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("Xəta: Yeni ad köhnə adla eyni ola bilməz! Əgər dəyişmək istəmirsinizsə, boş buraxın.");
+                        continue;
+                    }
+
+                   
+                    var allGroups = _groupService.GetAll();
+                    bool isDuplicate = allGroups.Any(g => g.Name.Equals(newName, StringComparison.OrdinalIgnoreCase) && g.Id != id);
+
+                    if (isDuplicate)
+                    {
+                        Console.WriteLine("Xəta: Bu adda başqa bir qrup artıq mövcuddur!");
+                        continue;
+                    }
+
+                    break; 
+                }
+
+               
+                Group updatedGroup = new Group
                 {
                     Name = newName,
-                    TeacherFullName = newTeacher,
-                    RoomName = newRoom
+                    
                 };
 
-                _groupService.Update(id, updatedData);
-                Console.WriteLine("Məlumatlar yeniləndi.");
+                _groupService.Update(id, updatedGroup);
+
             }
             catch (NotFoundException ex)
             {
                 Console.WriteLine($"Xəta: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Xəta baş verdi: {ex.Message}");
             }
         }
 

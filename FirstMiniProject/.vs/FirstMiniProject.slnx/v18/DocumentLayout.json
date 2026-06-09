@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\service\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|solutionrelative:service\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\repository\\repositories\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\service\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|solutionrelative:service\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\firstminiproject\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|solutionrelative:firstminiproject\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\firstminiproject\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|solutionrelative:firstminiproject\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\firstminiproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +17,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\service\\services\\enums\\operationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|solutionrelative:service\\services\\enums\\operationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\service\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|solutionrelative:service\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\firstminiproject\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|solutionrelative:firstminiproject\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\service\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|solutionrelative:service\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\firstminiproject\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CC85A65-21B4-A1C1-DFDC-FEB31647A3A4}|FirstMiniProject\\FirstMiniProject.csproj|solutionrelative:firstminiproject\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCCB928D-05C7-4E7C-A635-623BD9508D81}|Service\\Service.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\service\\services\\interfaces\\istudentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,16 +58,8 @@
       "RelativeMoniker": "D:0:0:{ED65C105-F9C1-4591-AC85-D060A3526818}|Domain\\Domain.csproj|solutionrelative:domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\repository\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\repository\\repositories\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\grouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FA89EDC9-70A4-48AF-8959-0B9942B6DB94}|Repository\\Repository.csproj|c:\\users\\user\\desktop\\firstminiproject\\firstminiproject\\repository\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -93,7 +93,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -105,25 +105,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "OperationType.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\Enums\\OperationType.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Enums\\OperationType.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\Enums\\OperationType.cs",
               "RelativeToolTip": "Service\\Services\\Enums\\OperationType.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwBwAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-08T17:06:59.436Z"
+              "WhenOpened": "2026-06-08T17:06:59.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "GroupController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Controllers\\GroupController.cs",
               "RelativeDocumentMoniker": "FirstMiniProject\\Controllers\\GroupController.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Controllers\\GroupController.cs",
               "RelativeToolTip": "FirstMiniProject\\Controllers\\GroupController.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAYwHoAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAAHIAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-06T12:53:00.741Z",
               "EditorCaption": ""
@@ -131,38 +132,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "FirstMiniProject\\Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "FirstMiniProject\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:53:08.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Program.cs",
               "RelativeDocumentMoniker": "FirstMiniProject\\Program.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Program.cs",
               "RelativeToolTip": "FirstMiniProject\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAIwBEAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwB8AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-03T08:49:20.343Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "GroupService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\GroupService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\GroupService.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\GroupService.cs",
               "RelativeToolTip": "Service\\Services\\GroupService.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAywCsAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAIwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-05T06:55:59.018Z",
               "EditorCaption": ""
@@ -170,6 +158,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\StudentService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\StudentService.cs",
+              "RelativeToolTip": "Service\\Services\\StudentService.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAFkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T06:55:49.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GroupRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\GroupRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\GroupRepository.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\GroupRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\GroupRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-05T06:27:33.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\BaseRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\BaseRepository.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwCUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-04T08:27:19.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "FirstMiniProject\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\FirstMiniProject\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "FirstMiniProject\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAgwDcBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T12:53:08.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "IStudentService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\Interfaces\\IStudentService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IStudentService.cs",
@@ -181,20 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StudentService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\StudentService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\StudentService.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\StudentService.cs",
-              "RelativeToolTip": "Service\\Services\\StudentService.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAYwFkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T06:55:49.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "IGroupService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Service\\Services\\Interfaces\\IGroupService.cs",
               "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\IGroupService.cs",
@@ -206,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Student.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Domain\\Entities\\Student.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Student.cs",
@@ -218,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Group.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Domain\\Entities\\Group.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\Group.cs",
@@ -230,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Domain\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "Domain\\Common\\BaseEntity.cs",
@@ -242,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Insiders\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Insiders\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -254,19 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "BaseRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\BaseRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repositories\\BaseRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\BaseRepository.cs",
-              "RelativeToolTip": "Repository\\Repositories\\BaseRepository.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwCUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-04T08:27:19.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "StudentRepository.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\StudentRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repositories\\StudentRepository.cs",
@@ -275,18 +290,6 @@
               "ViewState": "AgIAAAIAAAAAAAAAAAAswBIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-04T08:27:43.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "GroupRepository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\GroupRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repositories\\GroupRepository.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\FirstMiniProject\\FirstMiniProject\\Repository\\Repositories\\GroupRepository.cs",
-              "RelativeToolTip": "Repository\\Repositories\\GroupRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA/wBgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-05T06:27:33.385Z"
             },
             {
               "$type": "Document",

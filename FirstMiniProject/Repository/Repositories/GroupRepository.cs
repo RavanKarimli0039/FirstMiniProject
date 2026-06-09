@@ -13,17 +13,17 @@ namespace Repository.Repositories
     {
         public List<Group> GetAllGroupsByRoom(string roomName)
         {
-            return GetAll(x => x.RoomName == roomName);
+            return AppDbContext<Group>.datas.Where(x => x.RoomName == roomName).ToList();
         }
 
         public List<Group> GetAllGroupsByTeacher(string teacherFullName)
         {
-            return GetAll(x => x.TeacherFullName == teacherFullName);
+            return AppDbContext<Group>.datas.Where(x => x.TeacherFullName == teacherFullName).ToList();
         }
 
         public List<Group> SearchGroupByName(string groupName)
         {
-            return GetAll(x => x.Name.Contains(groupName));
+            return AppDbContext<Group>.datas.Where(x => x.Name == groupName).ToList();
         }
         
     }

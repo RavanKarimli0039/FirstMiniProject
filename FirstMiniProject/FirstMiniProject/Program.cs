@@ -1,21 +1,20 @@
-﻿using Project.Controllers;
+﻿using System;
+using System.Text;
+using Project.Controllers; 
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
 using Service.Services;
-using Service.Services.Enums;
 using Service.Services.Interfaces;
-using System.Text;
+using Service.Services.Enums;
 
-namespace Project
+namespace FirstMiniProject
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            // Azərbaycan şriftlərinin düzgün görünməsi üçün
             Console.OutputEncoding = Encoding.UTF8;
 
-            
             IGroupRepository groupRepo = new GroupRepository();
             IStudentRepository studentRepo = new StudentRepository();
 
@@ -25,46 +24,42 @@ namespace Project
             GroupController groupController = new GroupController(groupService);
             StudentController studentController = new StudentController(studentService, groupService);
 
-            // 2. ANA PROQRAM DÖVRÜ
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n======================================");
-                Console.WriteLine("======= KURS İDARƏETMƏ SİSTEMİ =======");
+                Console.WriteLine("======= COURSE MANAGEMENT SYSTEM =======");
                 Console.WriteLine("======================================");
                 Console.ResetColor();
 
-                Console.WriteLine("\n--- QRUP ƏMƏLİYYATLARI ---");
-                Console.WriteLine("1. Qrup yarat");
-                Console.WriteLine("2. Bütün qrupları listələ");
-                Console.WriteLine("3. Qrupu yenilə");
-                Console.WriteLine("4. Qrupu sil");
-                Console.WriteLine("5. ID-yə görə qrupu tap");
-                Console.WriteLine("6. Müəllimə görə qrupları tap");
-                Console.WriteLine("7. Otağa görə qrupları tap");
-                Console.WriteLine("8. Ada görə qrupları axtar");
+                Console.WriteLine("\n--- GROUP OPERATIONS ---");
+                Console.WriteLine("1. Create Group");
+                Console.WriteLine("2. List All Groups");
+                Console.WriteLine("3. Update Group");
+                Console.WriteLine("4. Delete Group");
+                Console.WriteLine("5. Get Group By ID");
+                Console.WriteLine("6. Get Groups By Teacher");
+                Console.WriteLine("7. Get Groups By Room");
+                Console.WriteLine("8. Search Groups By Name");
 
-                Console.WriteLine("\n--- TƏLƏBƏ ƏMƏLİYYATLARI ---");
-                Console.WriteLine("9. Tələbə yarat");
-                Console.WriteLine("10. Bütün tələbələri listələ");
-                Console.WriteLine("11. Tələbəni yenilə");
-                Console.WriteLine("12. Tələbəni sil");
-                Console.WriteLine("13. ID-yə görə tələbəni tap");
-                Console.WriteLine("14. Yaşına görə tələbələri tap");
-                Console.WriteLine("15. Qrup ID-sinə görə tələbələri tap");
-                Console.WriteLine("16. Ad/Soyada görə tələbə axtar");
+                Console.WriteLine("\n--- STUDENT OPERATIONS ---");
+                Console.WriteLine("9. Create Student");
+                Console.WriteLine("10. List All Students");
+                Console.WriteLine("11. Update Student");
+                Console.WriteLine("12. Delete Student");
+                Console.WriteLine("13. Get Student By ID");
+                Console.WriteLine("14. Get Students By Age");
+                Console.WriteLine("15. Get Students By Group ID");
+                Console.WriteLine("16. Search Student By Name/Surname");
 
-                Console.WriteLine("\n0. Proqramdan çıx");
+                Console.WriteLine("\n0. Exit");
                 Console.WriteLine("======================================");
-                Console.Write("Zəhmət olmasa seçiminizi edin (0-16): ");
+                Console.Write("Please select an option (0-16): ");
 
                 string input = Console.ReadLine();
 
-               
                 if (Enum.TryParse(input, out OperationType choice))
                 {
-                    
-
                     switch (choice)
                     {
                         case OperationType.CreateGroup:
@@ -118,17 +113,12 @@ namespace Project
                             break;
 
                         case OperationType.Exit:
-                            Console.WriteLine("Proqramdan çıxılır... Sağ olun!");
                             return;
-
-                        default:
-                            Console.WriteLine("Xəta: Belə bir seçim yoxdur!");
-                            break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Xəta: Zəhmət olmasa düzgün rəqəm seçin!");
+                    Console.WriteLine("Invalid selection!");
                 }
             }
         }
