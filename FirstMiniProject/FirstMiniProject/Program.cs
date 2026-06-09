@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using Project.Controllers; 
+using FirstMiniProject.Controllers;
 using Repository.Repositories;
 using Repository.Repositories.Interfaces;
 using Service.Services;

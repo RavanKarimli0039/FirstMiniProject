@@ -1,11 +1,11 @@
-﻿using Domain.Entities;
-using Service.Exceptions;
-using Service.Services.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Domain.Entities;
+using Service.Services.Interfaces;
+using Service.Exceptions;
 
-namespace Project.Controllers
+namespace FirstMiniProject.Controllers
 {
     public class StudentController
     {
@@ -20,293 +20,259 @@ namespace Project.Controllers
 
         public void Create()
         {
-            Console.WriteLine("\n--- Yeni Tələbə Yaradılması ---");
-
-            string name = GetValidatedName("Tələbənin adını daxil edin: ");
-            string surname = GetValidatedName("Tələbənin soyadını daxil edin: ");
-
-            int age;
-            while (true)
+            try
             {
-                Console.Write("Yaşını daxil edin (15-60): ");
-                if (int.TryParse(Console.ReadLine(), out age) && age >= 15 && age <= 60) break;
-                Console.WriteLine("Xəta: Yaş 15 və 60 arasında bir rəqəm olmalıdır!");
-            }
-
-            string email;
-            while (true)
-            {
-                Console.Write("Email daxil edin: ");
-                email = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(email) && email.Contains("@") && email.IndexOf("@") > 0 && email.Substring(email.IndexOf("@")).Contains(".") && !email.EndsWith(".")) break;
-                Console.WriteLine("Xəta: Email formatı yanlışdır (məsələn: rvan@gmail.com)!");
-            }
-
-            Group foundGroup = null;
-            while (true)
-            {
-                Console.Write("Tələbənin əlavə olunacağı Qrup ID-sini daxil edin: ");
-                if (int.TryParse(Console.ReadLine(), out int groupId))
+                Console.Write("Tələbə adı: ");
+                string name = Console.ReadLine()?.Trim();
+                if (string.IsNullOrWhiteSpace(name) || name.Any(char.IsDigit))
                 {
+                    Console.WriteLine("Ad boş ola bilməz və rəqəm daxil edilə bilməz!");
+                    return;
+                }
+
+                Console.Write("Tələbə soyadı: ");
+                string surname = Console.ReadLine()?.Trim();
+                if (string.IsNullOrWhiteSpace(surname) || surname.Any(char.IsDigit))
+                {
+                    Console.WriteLine("Soyad boş ola bilməz və rəqəm daxil edilə bilməz!");
+                    return;
+                }
+
+                int age;
+                while (true)
+                {
+                    Console.Write("Yaş (15-60): ");
+                    if (!int.TryParse(Console.ReadLine(), out age))
+                    {
+                        Console.WriteLine("Format yanlışdır! Rəqəm daxil edin.");
+                        continue;
+                    }
+         
+                    if (age < 15 || age > 60)
+                    {
+                        Console.WriteLine("Yaş 15-60 arası olmalıdır!");
+                        continue;
+                    }
+                    break;
+                }
+
+                string email;
+                while (true)
+                {
+                    Console.Write("Email: ");
+                    email = Console.ReadLine()?.Trim();
+                    if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+                    {
+                        Console.WriteLine("Email formatı yanlışdır (mütləq @ olmalıdır)!");
+                        continue;
+                    }
+                    break;
+                }
+
+                int groupId;
+                while (true)
+                {
+                    Console.Write("Qrup ID: ");
+                    if (!int.TryParse(Console.ReadLine(), out groupId))
+                    {
+                        Console.WriteLine("Wrong format! Rəqəm daxil edin.");
+                        continue;
+                    }
                     try
                     {
-                        foundGroup = _groupService.GetById(groupId);
+                        var group = _groupService.GetById(groupId);
+                        _studentService.Create(new Student { Name = name, Surname = surname, Age = age, Email = email, Group = group });
+                        Console.WriteLine("Tələbə uğurla yaradıldı.");
                         break;
                     }
                     catch (NotFoundException)
                     {
-                        Console.WriteLine("Xəta: Bu ID-li qrup tapılmadı! Yenidən yoxlayın.");
+                        Console.WriteLine("Belə bir qrup mövcud deyil! Yenidən cəhd edin.");
+                        continue;
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
-                }
-            }
-
-            try
-            {
-                Student newStudent = new Student
-                {
-                    Name = name,
-                    Surname = surname,
-                    Age = age,
-                    Email = email,
-                    Group = foundGroup
-                };
-
-                _studentService.Create(newStudent);
-                Console.WriteLine($"Tələbə uğurla yaradıldı və '{foundGroup.Name}' qrupuna əlavə olundu!");
             }
             catch (Exception ex)
-            {
-                Console.WriteLine($"Gözlənilməz xəta: {ex.Message}");
-            }
-        }
-
-        public void Update()
-        {
-            Console.WriteLine("\n--- Tələbə Məlumatlarının Yenilənməsi ---");
-            int id;
-            while (true)
-            {
-                Console.Write("Yeniləmək istədiyiniz tələbənin ID-sini daxil edin: ");
-                if (int.TryParse(Console.ReadLine(), out id)) break;
-                Console.WriteLine("Xəta: ID yalnız rəqəm olmalıdır!");
-            }
-
-            try
-            {
-                _studentService.GetById(id);
-
-                Console.Write("Yeni ad (dəyişmək istəmirsinizsə boş buraxın): ");
-                string newName = Console.ReadLine();
-
-                Console.Write("Yeni soyad (dəyişmək istəmirsinizsə boş buraxın): ");
-                string newSurname = Console.ReadLine();
-
-                int newAge = 0;
-                while (true)
-                {
-                    Console.Write("Yeni yaş (15-60, boş buraxıla bilər): ");
-                    string ageInput = Console.ReadLine();
-                    if (string.IsNullOrWhiteSpace(ageInput)) break;
-                    if (int.TryParse(ageInput, out newAge) && newAge >= 15 && newAge <= 60) break;
-                    Console.WriteLine("Xəta: Yaş 15-60 arası rəqəm olmalıdır!");
-                }
-
-                string newEmail = "";
-                while (true)
-                {
-                    Console.Write("Yeni email (boş buraxıla bilər): ");
-                    newEmail = Console.ReadLine();
-                    if (string.IsNullOrWhiteSpace(newEmail)) break;
-                    if (newEmail.Contains("@") && newEmail.IndexOf("@") > 0 && newEmail.Substring(newEmail.IndexOf("@")).Contains(".") && !newEmail.EndsWith(".")) break;
-                    Console.WriteLine("Xəta: Email formatı yanlışdır!");
-                }
-
-                Group newGroup = null;
-                while (true)
-                {
-                    Console.Write("Yeni Qrup ID (boş buraxıla bilər): ");
-                    string groupIdInput = Console.ReadLine();
-                    if (string.IsNullOrWhiteSpace(groupIdInput)) break;
-                    if (int.TryParse(groupIdInput, out int newGroupId))
-                    {
-                        try
-                        {
-                            newGroup = _groupService.GetById(newGroupId);
-                            break;
-                        }
-                        catch (NotFoundException)
-                        {
-                            Console.WriteLine("Xəta: Bu ID-li qrup tapılmadı!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
-                    }
-                }
-
-                Student updatedStudent = new Student
-                {
-                    Name = newName,
-                    Surname = newSurname,
-                    Age = newAge,
-                    Email = newEmail,
-                    Group = newGroup
-                };
-
-                _studentService.Update(id, updatedStudent);
-                Console.WriteLine("Tələbə məlumatları uğurla yeniləndi.");
-            }
-            catch (NotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Xəta baş verdi: {ex.Message}");
-            }
-        }
-
-        public void Delete()
-        {
-            Console.Write("Silmək istədiyiniz tələbənin ID-si: ");
-            if (int.TryParse(Console.ReadLine(), out int id))
-            {
-                try
-                {
-                    _studentService.Delete(id);
-                    Console.WriteLine("Tələbə uğurla silindi.");
-                }
-                catch (NotFoundException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
             }
         }
 
         public void GetAll()
         {
-            var students = _studentService.GetAll();
-            if (students.Count == 0)
+            var list = _studentService.GetAll();
+            if (list.Count == 0)
             {
-                Console.WriteLine("Sistemdə hələ heç bir tələbə yoxdur.");
+                Console.WriteLine("Siyahı boşdur.");
                 return;
             }
-            Console.WriteLine("\n--- Bütün Tələbələr ---");
-            foreach (var s in students)
+            foreach (var s in list)
+                Console.WriteLine($"ID: {s.Id} | {s.Name} {s.Surname} | Yaş: {s.Age} | Email: {s.Email} | Qrup: {s.Group.Name}");
+        }
+
+        public void Update()
+        {
+            while (true)
             {
-                string gName = s.Group != null ? s.Group.Name : "Təyin edilməyib";
-                Console.WriteLine($"ID: {s.Id} | {s.Name} {s.Surname} | Yaş: {s.Age} | Qrup: {gName}");
+                try
+                {
+                    Console.Write("Update üçün ID (Çıxmaq üçün 0): ");
+                    if (!int.TryParse(Console.ReadLine(), out int id))
+                    {
+                        Console.WriteLine("Format yanlışdır!");
+                        continue;
+                    }
+                    if (id == 0) break;
+
+                    var exist = _studentService.GetById(id);
+
+                    Console.Write($"Yeni ad (Köhnə: {exist.Name}): ");
+                    string name = Console.ReadLine();
+                    if (!string.IsNullOrWhiteSpace(name) && name.Any(char.IsDigit))
+                    {
+                        Console.WriteLine("Ad daxilində rəqəm ola bilməz!");
+                        continue;
+                    }
+
+                    Console.Write($"Yeni soyad (Köhnə: {exist.Surname}): ");
+                    string surname = Console.ReadLine();
+                    if (!string.IsNullOrWhiteSpace(surname) && surname.Any(char.IsDigit))
+                    {
+                        Console.WriteLine("Soyad daxilində rəqəm ola bilməz!");
+                        continue;
+                    }
+
+                    _studentService.Update(id, new Student { Name = name, Surname = surname });
+                    Console.WriteLine("Məlumatlar yeniləndi.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    if (ex is NotFoundException) continue;
+                    break;
+                }
+            }
+        }
+
+        public void Delete()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Silmək üçün ID (Çıxmaq üçün 0): ");
+                    if (!int.TryParse(Console.ReadLine(), out int id))
+                    {
+                        Console.WriteLine("Yanlış format!");
+                        continue;
+                    }
+                    if (id == 0) break;
+
+                    _studentService.Delete(id);
+                    Console.WriteLine("Uğurla silindi.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    if (ex is NotFoundException) continue;
+                    break;
+                }
             }
         }
 
         public void GetById()
         {
-            Console.Write("Axtardığınız tələbənin ID-sini daxil edin: ");
-            if (int.TryParse(Console.ReadLine(), out int id))
+            while (true)
             {
                 try
                 {
-                    var student = _studentService.GetById(id);
-                    string gName = student.Group != null ? student.Group.Name : "Təyin edilməyib";
-                    Console.WriteLine($"ID: {student.Id} | Ad: {student.Name} | Soyad: {student.Surname} | Yaş: {student.Age} | Qrup: {gName}");
+                    Console.Write("ID daxil edin (Çıxmaq üçün 0): ");
+                    if (!int.TryParse(Console.ReadLine(), out int id))
+                    {
+                        Console.WriteLine("Yanlış format!");
+                        continue;
+                    }
+                    if (id == 0) break;
+
+                    var s = _studentService.GetById(id);
+                    Console.WriteLine($"ID: {s.Id} | {s.Name} {s.Surname} | Qrup: {s.Group.Name}");
+                    break;
                 }
-                catch (NotFoundException ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    if (ex is NotFoundException) continue;
+                    break;
                 }
-            }
-            else
-            {
-                Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
             }
         }
 
         public void GetAllByAge()
         {
-            Console.Write("Axtardığınız yaşı daxil edin: ");
-            if (int.TryParse(Console.ReadLine(), out int age))
+            while (true)
             {
-                var students = _studentService.GetAllByAge(age);
-                if (students.Count == 0)
+                Console.Write("Yaş daxil edin: ");
+                string input = Console.ReadLine();
+                if (!int.TryParse(input, out int age))
                 {
-                    Console.WriteLine($"{age} yaşında tələbə tapılmadı.");
-                    return;
+                    Console.WriteLine("Yanlış format! Rəqəm daxil edin.");
+                    continue;
                 }
-                foreach (var item in students)
+                if (age < 15 || age > 60)
                 {
-                    Console.WriteLine($"ID: {item.Id} | {item.Name} {item.Surname} | Qrup: {item.Group.Name}");
+                    Console.WriteLine("Olmaz! Yaş intervalı (15-60) düzgün deyil. Menyuya qayıdılır.");
+                    break;
                 }
-            }
-            else
-            {
-                Console.WriteLine("Xəta: Yaş rəqəm olmalıdır!");
+
+                var list = _studentService.GetAllByAge(age);
+                if (list.Count == 0) Console.WriteLine("Bu yaşda tələbə tapılmadı.");
+                else foreach (var s in list) Console.WriteLine($"ID: {s.Id} | {s.Name} {s.Surname}");
+                break;
             }
         }
 
         public void GetStudentsByGroupId()
         {
-            Console.Write("Qrup ID-sini daxil edin: ");
-            if (int.TryParse(Console.ReadLine(), out int groupId))
+            while (true)
             {
-                var students = _studentService.GetAllByGroupId(groupId);
-                if (students.Count == 0)
+                Console.Write("Qrup ID daxil edin (Çıxmaq üçün 0): ");
+                if (!int.TryParse(Console.ReadLine(), out int id))
                 {
-                    Console.WriteLine("Bu qrupda tələbə tapılmadı.");
-                    return;
+                    Console.WriteLine("Wrong format! Rəqəm daxil edin.");
+                    continue;
                 }
-                foreach (var item in students)
+                if (id == 0) break;
+
+                try
                 {
-                    Console.WriteLine($"ID: {item.Id} | {item.Name} {item.Surname} | Qrup: {item.Group.Name}");
+                    _groupService.GetById(id);
+                    var list = _studentService.GetAllByGroupId(id);
+                    if (list.Count == 0) Console.WriteLine("Bu qrupda tələbə yoxdur.");
+                    else foreach (var s in list) Console.WriteLine($"ID: {s.Id} | {s.Name} {s.Surname}");
+                    break;
                 }
-            }
-            else
-            {
-                Console.WriteLine("Xəta: ID rəqəm olmalıdır!");
+                catch (NotFoundException)
+                {
+                    Console.WriteLine("Belə bir qrup mövcud deyil!");
+                    break;
+                }
             }
         }
 
         public void SearchByNameOrSurname()
         {
-            Console.Write("Axtardığınız tələbənin adını və ya soyadını daxil edin: ");
-            string text = Console.ReadLine();
-            var students = _studentService.SearchByNameOrSurname(text);
-            if (students.Count == 0)
+            Console.Write("Axtarış üçün ad və ya soyad daxil edin: ");
+            string text = Console.ReadLine()?.Trim();
+            if (string.IsNullOrWhiteSpace(text))
             {
-                Console.WriteLine("Axtarışa uyğun tələbə tapılmadı.");
+                Console.WriteLine("Axtarış üçün mətn daxil edin!");
                 return;
             }
-            foreach (var item in students)
-            {
-                Console.WriteLine($"ID: {item.Id} | {item.Name} {item.Surname} | Qrup: {item.Group.Name}");
-            }
-        }
-
-        private string GetValidatedName(string message)
-        {
-            while (true)
-            {
-                Console.Write(message);
-                string input = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(input))
-                {
-                    Console.WriteLine("Xəta: Bu xana boş ola bilməz!");
-                    continue;
-                }
-                if (input.Any(char.IsDigit))
-                {
-                    Console.WriteLine("Xəta: Mətndə rəqəm ola bilməz!");
-                }
-                else return input;
-            }
+            var list = _studentService.SearchByNameOrSurname(text);
+            if (list.Count == 0) Console.WriteLine("Uyğun tələbə tapılmadı.");
+            else foreach (var s in list) Console.WriteLine($"ID: {s.Id} | {s.Name} {s.Surname}");
         }
     }
 }
